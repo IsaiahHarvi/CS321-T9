@@ -1,0 +1,112 @@
+Hotel England
+London
+Hotel Sweden
+Stockholm
+Hotel France
+Paris
+Hotel Italy
+Rome
+Hotel Japan
+Tokyo
+Hotel Switzerland
+Bern
+Hotel Alabama
+Montgomery
+Hotel Alaska
+Juneau
+Hotel Arizona
+Phoenix
+Hotel Arkansas
+Little Rock
+Hotel California
+Sacramento
+Hotel Colorado
+Denver
+Hotel Connecticut
+Hartford
+Hotel Delaware
+Dover
+Hotel Florida
+Tallahassee
+Hotel Georgia
+Atlanta
+Hotel Hawaii
+Honolulu
+Hotel Idaho
+Boise
+Hotel Illinois
+Springfield
+Hotel Indiana
+Indianapolis
+Hotel Iowa
+Des Moines
+Hotel Kansas
+Topeka
+Hotel Kentucky
+Frankfort
+Hotel Louisiana
+Baton Rouge
+Hotel Maine
+Augusta
+Hotel Maryland
+Annapolis
+Hotel Massachusetts
+Boston
+Hotel Michigan
+Lansing
+Hotel Minnesota
+St. Paul
+Hotel Mississippi
+Jackson
+Hotel Missouri
+Jefferson City
+Hotel Montana
+Helena
+Hotel Nebraska
+Lincoln
+Hotel Nevada
+Carson City
+Hotel New Hampshire
+Concord
+Hotel New Jersey
+Trenton
+Hotel New Mexico
+Albuquerque
+Hotel New York
+Albany
+Hotel North Carolina
+Raleigh
+Hotel North Dakota
+Bismarck
+Hotel Ohio
+Columbus
+Hotel Oklahoma
+Oklahoma City
+Hotel Oregon
+Salem
+Hotel Pennsylvania
+Harrisburg
+Hotel Rhode Island
+Providence
+Hotel South Carolina
+Columbia
+Hotel South Dakota
+Pierre
+Hotel Tennessee
+Nashville
+Hotel Texas
+Austin
+Hotel Utah
+Salt Lake City
+Hotel Vermont
+Montpelier
+Hotel Virginia
+Richmond
+Hotel Washington
+Olympia
+Hotel West Virginia
+Charleston
+Hotel Wisconsin
+Madison
+Hotel Wyoming
+Cheyenne
