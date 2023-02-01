@@ -1,6 +1,7 @@
 import sqlite3
 import random
 import os
+from datetime import datetime
 
 # Author: Isaiah Harville
 # Function: Creates Pseudo Data to Populate the Hotel.db Database to demonstrate functionality of the program.
@@ -182,10 +183,36 @@ class DataGenerator:
             self.DB.execute(f"INSERT INTO Guest VALUES ({self.guestNum}, '{random.choice(self.firstNames)}', '{random.choice(self.lastNames)}', '{random.choice(self.emails)}', '{random.choice(self.phoneNumbers)}')")
             
             # Bookings
-            self.DB.execute(f"INSERT INTO Booking VALUES ({self.guestNum}, {self.hotelNum}, {self.roomNumber}, '2023-{month}-{startDay}', '2023-{month}-{startDay+random.randint(3,8 if 30-startDay > 8 else 30-startDay)}')")
+            # self.DB.execute(f"INSERT INTO Booking VALUES ({self.guestNum}, {self.hotelNum}, {self.roomNumber}, '2023-{month}-{startDay}', '2023-{month}-{startDay+random.randint(3,8 if 30-startDay > 8 else 30-startDay)}')")
 
         self.DB.commit()
         return
+
+    
+    def generatePsuedoBookings(self, startingBookedRate, bookedDecrement):
+        guestNos = self.DB.execute('SELECT guest_No FROM Guest').fetchall()
+        bookedRate = startingBookedRate
+        today = datetime.date.today()
+
+        totalRooms = self.DB.execute('SELECT COUNT(*) FROM Room').fetchone()[0]
+
+        getAvaibleRoomsQuery = 'SELECT hotel_No, room_No FROM Room WHERE (hotel_No, room_No) NOT IN (SELECT hotel_No, room_No FROM Booking WHERE check_in_date <= ? AND check_out_date > ?)'
+        while bookedRate > 0:
+            availableRooms = self.DB.execute(getAvaibleRoomsQuery, (today, today)).fetchall()
+            numOfAvailableRooms = len(availableRooms)
+            roomsToBook = int(totalRooms * bookedRate) - totalRooms + numOfAvailableRooms
+            
+            for i in range(roomsToBook):
+                guestNo = random.choice(guestNos)[0]
+                ndx = random.randint(0, len(availableRooms) - 1)
+                hotelNo, roomNo = availableRooms[ndx]
+                checkInDate = today
+                checkOutDate = checkInDate + datetime.timedelta(days = random.randint(1, 7))
+                self.DB.execute('INSERT INTO Booking VALUES (?, ?, ?, ?, ?)', (guestNo, hotelNo, roomNo, checkInDate, checkOutDate))
+                del availableRooms[ndx]
+
+            bookedRate -= bookedDecrement
+            today += datetime.timedelta(days = 1)
 
 
 DataGenerator()
