@@ -1,3 +1,5 @@
+--Query program to test SqliteJDBC.java
+
 /*
 SELECT *
 FROM Room
@@ -13,3 +15,4 @@ WHERE Hotel.city = 'Denver';
 
 SELECT * 
 FROM Guest
+WHERE Guest.first_name = 'John'
