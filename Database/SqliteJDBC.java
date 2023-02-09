@@ -36,7 +36,7 @@ public class SqliteJDBC {
         return connect;
     } 
     
-    public void insert(String fName, String lName, String email, int phoneNum) {
+    public void insert(String fName, String lName, String email, String phoneNum) {
         String sql = "INSERT INTO Guests(f_name,l_name,email,phone_num) VALUES(?,?,?,?)";
 
         try (Connection conn = this.connection(); 
@@ -65,8 +65,8 @@ public class SqliteJDBC {
                 String lName = sc.nextLine();
                 System.out.print("Enter email: ");
                 String email = sc.nextLine();
-                System.out.print("Enter phone number: ");
-                int phoneNum = sc.nextInt();
+                System.out.print("Enter phone number: "); // HARVI- Parsed as string to resolve a mismatch exception.
+                String phoneNum = sc.nextLine();
                 sc.nextLine();
 
                 app.insert(fName, lName, email, phoneNum);
