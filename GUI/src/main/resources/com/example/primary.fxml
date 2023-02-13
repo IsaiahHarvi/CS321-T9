@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -10,21 +7,26 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #313639;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
+<?import javafx.scene.control.Tooltip?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #F7F7E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="1.0" AnchorPane.topAnchor="1.0">
          <children>
-            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="1000.0" style="-fx-background-color: #664229;">
+            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="1000.0" style="-fx-background-color: #1474E0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
-                  <Text fill="#313639" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the options to make your reservation" textAlignment="CENTER" underline="true" wrappingWidth="577.6484375" BorderPane.alignment="CENTER">
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the options to make your reservation" textAlignment="CENTER" wrappingWidth="577.6484375" BorderPane.alignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold Italic" size="25.0" />
                      </font>
                   </Text>
                </center>
@@ -43,13 +45,12 @@
             </Text>
             <AnchorPane layoutX="300.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="200.0">
                <children>
-                  <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="73.0" prefWidth="74.0" selected="true" style="-fx-background-color: darkgrey;" text="A">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="location_buttons" />
-                     </toggleGroup>
-                  </ToggleButton>
-                  <ToggleButton layoutX="133.0" minWidth="40.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="68.0" style="-fx-background-color: darkgray;" text="B" toggleGroup="$location_buttons" />
-                  <ToggleButton layoutX="69.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="68.0" style="-fx-background-color: darkgray;" text="C" toggleGroup="$location_buttons" />
+                  <ChoiceBox layoutX="25.0" layoutY="24.0" prefWidth="150.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgrey;" />
+                  <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="-12.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Info.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
@@ -75,9 +76,9 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="400.0" layoutY="400.0" prefHeight="129.0" prefWidth="800.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <AnchorPane layoutX="400.0" layoutY="400.0" prefHeight="129.0" prefWidth="800.0" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <children>
-            <BorderPane layoutY="6.0" prefHeight="200.0" prefWidth="800.0" style="-fx-background-color: #313639;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <BorderPane layoutY="6.0" prefHeight="200.0" prefWidth="800.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                <top>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Availability Dates" BorderPane.alignment="CENTER">
                      <font>
@@ -89,7 +90,7 @@
                   <DatePicker BorderPane.alignment="CENTER" />
                </right>
                <left>
-                  <DatePicker BorderPane.alignment="CENTER" />
+                  <DatePicker style="-fx-border-radius: 5cm;" BorderPane.alignment="CENTER" />
                </left>
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -117,7 +118,7 @@
       </AnchorPane>
       <AnchorPane layoutX="398.0" layoutY="529.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="545.0">
          <children>
-            <BorderPane layoutX="300.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #313639;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <BorderPane layoutX="300.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F7F7E6;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                <top>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of bedrooms / bathrooms" textAlignment="CENTER" BorderPane.alignment="CENTER">
                      <font>
@@ -126,19 +127,12 @@
                   </Text>
                </top>
                <left>
-                  <ChoiceBox prefHeight="26.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <ChoiceBox prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="100.0" />
                      </BorderPane.margin>
                   </ChoiceBox>
                </left>
-               <right>
-                  <ChoiceBox prefHeight="26.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets right="100.0" />
-                     </BorderPane.margin>
-                  </ChoiceBox>
-               </right>
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <left>
@@ -148,50 +142,73 @@
                            </font>
                         </Text>
                      </left>
-                     <right>
+                     <center>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bathrooms" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Text>
+                     </center>
+                     <right>
+                        <HBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" text="2">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="bathroom_toggle" />
+                                 </toggleGroup>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ToggleButton>
+                              <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" text="4" toggleGroup="$bathroom_toggle">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ToggleButton>
+                              <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" text="5" toggleGroup="$bathroom_toggle" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets right="100.0" />
+                           </BorderPane.margin>
+                        </HBox>
                      </right>
                   </BorderPane>
                </center>
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="400.0" layoutY="646.0" prefHeight="332.0" prefWidth="800.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="660.0">
+      <AnchorPane layoutX="102.0" layoutY="646.0" prefHeight="255.0" prefWidth="798.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="660.0">
          <children>
-            <AnchorPane layoutX="324.0" prefHeight="327.0" prefWidth="798.0" style="-fx-background-color: #313639;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <AnchorPane layoutY="1.0" prefHeight="280.0" prefWidth="796.0" style="-fx-background-color: #F7F7E6;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                <children>
                   <Text layoutX="294.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Availability" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
-                  <CheckBox layoutX="353.0" layoutY="50.0" mnemonicParsing="false" text="Pets" textAlignment="CENTER" textFill="#000000fc">
+                  <CheckBox layoutX="340.0" layoutY="40.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" text="Pets" textAlignment="CENTER" textFill="#000000fc" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="340.0">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="353.0" layoutY="90.0" mnemonicParsing="false" text="Smoking" textFill="#000000fc">
+                  <CheckBox layoutX="340.0" layoutY="74.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="150.0" text="Smoking" textFill="#000000fc" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="340.0">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="353.0" layoutY="130.0" mnemonicParsing="false" text="Pool" textFill="#000000fc">
+                  <CheckBox layoutX="344.0" layoutY="112.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="110.0" text="Pool" textFill="#000000fc" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="340.0">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="353.0" layoutY="170.0" mnemonicParsing="false" text="Complimentary Breakfast" textFill="#000000fc">
+                  <CheckBox layoutX="136.0" layoutY="156.0" mnemonicParsing="false" text="Complimentary Breakfast" textFill="#000000fc" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="340.0">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="353.0" layoutY="210.0" mnemonicParsing="false" text="Ect." textFill="#000000fc">
+                  <CheckBox layoutX="211.0" layoutY="199.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Ect." textFill="#000000fc" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </CheckBox>
                </children>
