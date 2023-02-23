@@ -44,7 +44,7 @@ public class SqliteJDBC {
             pstmt.setString(1, fName);
             pstmt.setString(2, lName);
             pstmt.setString(3, email);
-            pstmt.setInt(4, phoneNum);
+            pstmt.setString(4, phoneNum);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
