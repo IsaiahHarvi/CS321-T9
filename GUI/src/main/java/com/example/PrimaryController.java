@@ -23,15 +23,19 @@ public class PrimaryController implements Initializable{
         "Hotel West Virginia","Hotel Wisconsin","Hotel Wyoming"};
     /*private ChoiceBox<String> roomBox;
     private String[] Rooms={"1","2","3","4","5"};*/
-    private ChoiceBox<String> test;
-    private String testwords[] = {"1","2","3"};
+    
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         loadData();
-        
+        //test.getItems().addAll(testwords);
+
     }
+    @FXML
+    private ChoiceBox<String> test;
+    private String testwords[] = {"1","2","3"};
+
 
     @FXML
     private void switchToSecondary() throws IOException {
@@ -39,7 +43,7 @@ public class PrimaryController implements Initializable{
     }
 
     private void loadData(){
-        //test.getItems().addAll(testwords);
+        test.getItems().addAll(testwords);
         locationBox.getItems().addAll(Hotels);
     }
 }
