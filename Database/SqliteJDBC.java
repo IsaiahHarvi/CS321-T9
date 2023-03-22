@@ -11,7 +11,7 @@ public class SqliteJDBC {
     
     private Connection connection() {
         Connection connect = null;
-        String url = "jdbc:sqlite:C:/sqlite/db/Hotel.db";
+        String url = "jdbc:sqlite:Database/Hotel.db";
                 //C:/sqlite/db/Hotel.db
         try {
             Class.forName("org.sqlite.JDBC");
