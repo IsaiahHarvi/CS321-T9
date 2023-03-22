@@ -16,7 +16,7 @@ public class SqliteJDBC {
         try {
             Class.forName("org.sqlite.JDBC");
             connect = DriverManager.getConnection(url);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException ex) {
             System.out.println("Connection to DB failed! DB not found! \n"+ ex.getMessage());
         } catch (SQLException ex) {
             System.out.println("Connection to DB failed! SQL exception thrown! \n"+ ex.getMessage());
@@ -44,7 +44,7 @@ public class SqliteJDBC {
         public static void main(String[] args) {
         SqliteJDBC app = new SqliteJDBC();
         Scanner sc = new Scanner(System.in);
-           // System.out.println("\n Successfully connected to SQlite database. enter information and enter a blank space to exit.\n");
+            System.out.println("\n Successfully connected to SQlite database. enter information and enter a blank space to exit.\n");
             while (true) {
                 System.out.print("Enter first name: ");
                 String fName = sc.nextLine();
