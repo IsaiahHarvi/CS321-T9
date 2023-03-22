@@ -9,32 +9,22 @@ import java.util.Scanner;
 
 public class SqliteJDBC {
     
-    private Connection connection(){
-        
-        Connection connect = null; 
-        String url = "jdbc:sqlite:Hotel.db";                        //file location
-            // /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java
-        try{
-            Class.forName("org.sqlite.JDBC");               //connect to JDBC
+    private Connection connection() {
+        Connection connect = null;
+        String url = "jdbc:sqlite:C:/sqlite/db/Hotel.db";
+                //C:/sqlite/db/Hotel.db
+        try {
+            Class.forName("org.sqlite.JDBC");
             connect = DriverManager.getConnection(url);
-        } 
-        catch(ClassNotFoundException e){
-            System.out.println("Connection to DB failed! DB not found! \n");   //add error msg
+        } catch (ClassNotFoundException e) {
+            System.out.println("Connection to DB failed! DB not found! \n"+ ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Connection to DB failed! SQL exception thrown! \n"+ ex.getMessage());
         }
-        catch(SQLException ex){
-            System.out.println("Connection to DB failed! SQL exception thrown! \n");
-        }
-        finally {
-            try{
-                if (connect != null) connect.close();
-            }
-            catch (SQLException exc){
-                System.out.println("Closing connection failed! ");
-            }
-            
-        }
+    
+        // Note: moved the return statement inside the try block
         return connect;
-    } 
+    }
     
     public void insert(String fName, String lName, String email, String phoneNum) {
         String sql = "INSERT INTO Guests(f_name,l_name,email,phone_num) VALUES(?,?,?,?)";
