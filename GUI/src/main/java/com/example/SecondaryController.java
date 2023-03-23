@@ -23,6 +23,10 @@ public class SecondaryController implements Initializable {
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }
+    @FXML 
+    private void switchToThird() throws IOException{
+        App.setRoot("third");
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

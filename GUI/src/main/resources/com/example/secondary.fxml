@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SecondaryController">
    <children>
-      <Label layoutX="232.0" layoutY="200.0" text="Select the location for your reservation" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="205.0">
+      <Label alignment="CENTER" layoutX="232.0" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="Select the location for your reservation" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="364.0">
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="locationBox" layoutX="325.0" layoutY="288.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="locationBox" layoutX="400.0" layoutY="500.0" prefWidth="150.0" style="-fx-background-radius: 5cm;" AnchorPane.bottomAnchor="570.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="400.0" />
+      <Button layoutX="800.0" layoutY="800.0" mnemonicParsing="false" onAction="#switchToThird" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: lightblue; -fx-background-radius: 5cm;" text="Next" />
+      <Button layoutX="600.0" layoutY="800.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 5cm;" text="Previous" />
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/MicrosoftTeams-image%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
