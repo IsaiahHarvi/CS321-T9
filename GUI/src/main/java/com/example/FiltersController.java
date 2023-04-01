@@ -6,8 +6,15 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Slider;
 
-public class SecondaryController implements Initializable {
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+
+
+
+public class FiltersController implements Initializable {
 
     @FXML
     private ChoiceBox<String> locationBox;
@@ -19,17 +26,54 @@ public class SecondaryController implements Initializable {
             "Hotel Rhode Island","Hotel South Carolina","Hotel South Dakota","Hotel Tennessee","Hotel Texas","Hotel Utah","Hotel Vermont","Hotel Virginia","Hotel Washington",
         "Hotel West Virginia","Hotel Wisconsin","Hotel Wyoming"};
     
+    
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+    private Slider minPriceSlider;
+
+    @FXML
+    private Slider maxPriceSlider;
+
+    @FXML
+    private DatePicker checkInDate;
+
+    @FXML
+    private DatePicker checkOutDate;
+
+    @FXML   
+    private ChoiceBox<Integer> numBeds;
+    private Integer[] beds = {1,2,3};
+    
+    @FXML
+    private ChoiceBox<Integer> numBathrooms;
+    private Integer[] bathrooms = {1,2,3};
+
+    @FXML
+    private boolean pets;
+
+    @FXML
+    private boolean smoking;
+
+
+    
+    @FXML
+    private void switchToHome() throws IOException {
+        App.setRoot("home");
     }
     @FXML 
-    private void switchToThird() throws IOException{
-        App.setRoot("third");
+    private void switchToResults() throws IOException{
+        App.setRoot("results");
+    }
+    @FXML   
+    private void loadData(){
+        locationBox.getItems().addAll(Hotels);
+        //for some reason this doesn't work, it says it is empty when i try to run it
+        //numBeds.getItems().addAll(beds);
+        //numBathrooms.getItems().addAll(bathrooms);
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        locationBox.getItems().addAll(Hotels);
+        loadData();
+        
     }
 }

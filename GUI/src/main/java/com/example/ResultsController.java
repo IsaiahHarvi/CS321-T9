@@ -7,14 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 
-public class FifthController implements Initializable {
+public class ResultsController implements Initializable {
 
     @FXML
-    private void switchToFourth() throws IOException {
-        App.setRoot("fourth");
+    private void switchToFilters() throws IOException {
+        App.setRoot("filters");
     }
-    @FXML void switchToSixth() throws IOException{
-        App.setRoot("sixth");
+    @FXML void switchToConfirmation() throws IOException{
+        App.setRoot("confirmation");
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

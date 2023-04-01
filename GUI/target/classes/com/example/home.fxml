@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomeController">
    <children>
-      <Button layoutX="378.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="35.0" prefWidth="244.0" style="-fx-background-color: lightblue; -fx-background-radius: 5cm;" text="Check  In" AnchorPane.leftAnchor="378.0" AnchorPane.rightAnchor="378.0">
+      <Button layoutX="378.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToFilters" prefHeight="35.0" prefWidth="244.0" style="-fx-background-color: lightblue; -fx-background-radius: 5cm;" text="Check  In" AnchorPane.leftAnchor="378.0" AnchorPane.rightAnchor="378.0">
          <font>
             <Font size="18.0" />
          </font></Button>
