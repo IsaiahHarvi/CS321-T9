@@ -37,8 +37,8 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Slider layoutX="32.0" layoutY="35.0" majorTickUnit="100.0" max="500.0" min="100.0" minorTickCount="5" prefHeight="38.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="650.0" />
-            <Slider layoutX="513.0" layoutY="35.0" majorTickUnit="100.0" max="500.0" min="100.0" minorTickCount="5" prefHeight="0.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="20.0" />
+            <Slider fx:id="minPriceSlider" layoutX="32.0" layoutY="35.0" majorTickUnit="100.0" max="500.0" min="100.0" minorTickCount="5" prefHeight="38.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="650.0" />
+            <Slider fx:id="maxPriceSlider" layoutX="513.0" layoutY="35.0" majorTickUnit="100.0" max="500.0" min="100.0" minorTickCount="5" prefHeight="0.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="20.0" />
             <Text fill="WHITE" layoutX="355.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ Min" AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="597.529296875">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
@@ -62,10 +62,10 @@
                   </Text>
                </top>
                <right>
-                  <DatePicker BorderPane.alignment="CENTER" />
+                  <DatePicker fx:id="checkOutDate" BorderPane.alignment="CENTER" />
                </right>
                <left>
-                  <DatePicker style="-fx-border-radius: 5cm;" BorderPane.alignment="CENTER" />
+                  <DatePicker fx:id="checkInDate" style="-fx-border-radius: 5cm;" BorderPane.alignment="CENTER" />
                </left>
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -102,7 +102,7 @@
                   </Text>
                </top>
                <left>
-                  <ChoiceBox fx:id="rooms" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" BorderPane.alignment="CENTER">
+                  <ChoiceBox fx:id="numBeds" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="100.0" />
                      </BorderPane.margin>
@@ -125,7 +125,7 @@
                         </Text>
                      </center>
                      <right>
-                        <ChoiceBox prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+                        <ChoiceBox fx:id="numBathrooms" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets right="100.0" />
                            </BorderPane.margin>
@@ -143,12 +143,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <CheckBox layoutX="340.0" layoutY="40.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" text="Pets" textAlignment="CENTER" textFill="#fffffffc" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="340.0">
+            <CheckBox fx:id="pets" layoutX="340.0" layoutY="40.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" text="Pets" textAlignment="CENTER" textFill="#fffffffc" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="340.0">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="340.0" layoutY="74.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="150.0" text="Smoking" textFill="#fffffffc" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="340.0">
+            <CheckBox fx:id="smoking" layoutX="340.0" layoutY="74.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="150.0" text="Smoking" textFill="#fffffffc" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="340.0">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

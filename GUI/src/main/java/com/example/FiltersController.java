@@ -17,7 +17,7 @@ import javafx.collections.FXCollections;
 public class FiltersController implements Initializable {
 
     @FXML
-    private ChoiceBox<String> locationBox;
+    private ChoiceBox<String> locationBox = new ChoiceBox<>();
     private String[] Hotels = {"Hotel England","Hotel Sweden","Hotel France","Hotel Italy","Hotel Japan","Hotel Switzerland","Hotel Alabama","Hotel Arizona","Hotel Arkansas",
                             "Hotel California","Hotel Colorado","Hotel Connecticut","Hotel Delaware","Hotel Florida","Hotel Georgia","Hotel Hawaii","Hotel Idaho","Hotel Illinois",
                         "Hotel Indiana","Hotel Iowa","Hotel Kansas","Hotel Kentucky","Hotel Louisiana","Hotel Maine","Hotel Maryland","Hotel Massachusetts","Hotel Michigan",
@@ -40,11 +40,11 @@ public class FiltersController implements Initializable {
     private DatePicker checkOutDate;
 
     @FXML   
-    private ChoiceBox<Integer> numBeds;
+    private ChoiceBox<Integer> numBeds = new ChoiceBox<>();
     private Integer[] beds = {1,2,3};
     
     @FXML
-    private ChoiceBox<Integer> numBathrooms;
+    private ChoiceBox<Integer> numBathrooms  = new ChoiceBox<>();
     private Integer[] bathrooms = {1,2,3};
 
     @FXML
@@ -65,7 +65,7 @@ public class FiltersController implements Initializable {
     }
     @FXML   
     private void loadData(){
-        locationBox.getItems().addAll(Hotels);
+        //locationBox.getItems().addAll(Hotels);
         //for some reason this doesn't work, it says it is empty when i try to run it
         //numBeds.getItems().addAll(beds);
         //numBathrooms.getItems().addAll(bathrooms);
@@ -73,7 +73,9 @@ public class FiltersController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        loadData();
-        
+        //loadData();
+        locationBox.getItems().addAll(Hotels);
+        numBeds.getItems().addAll(beds);
+        numBathrooms.getItems().addAll(bathrooms);
     }
 }
