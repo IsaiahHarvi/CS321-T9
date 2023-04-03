@@ -15,4 +15,4 @@ WHERE Hotel.city = 'Denver';
 
 SELECT * 
 FROM Guest
-WHERE Guest.first_name = 'John' AND Guest.last_name = 'Doe'
+WHERE Guest.first_name = 'Casey' AND Guest.last_name = 'Bramlett'
