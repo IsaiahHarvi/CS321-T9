@@ -1,17 +1,23 @@
 package com.example;
 
+import javafx.scene.control.DatePicker;
+import java.time.LocalDate;
+
 public class RoomSearch {
     private String city;
     private int minPrice;
     private int maxPrice;
-    private String checkIn;
-    private String checkOut;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
     private int numBeds;
     private int numBathroom;
     private boolean pets;
     private boolean smoking;
 
-    public RoomSearch(String city, int minPrice, int maxPrice, String checkIn, String checkOut, int numBeds, int numBathroom, boolean pets, boolean smoking) {
+
+    public RoomSearch() {
+    }
+    public RoomSearch(String city, int minPrice, int maxPrice, LocalDate checkIn, LocalDate checkOut, int numBeds, int numBathroom, boolean pets, boolean smoking) {
         this.city = city;
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
@@ -47,19 +53,19 @@ public class RoomSearch {
         this.maxPrice = maxPrice;
     }
 
-    public String getCheckIn() {
+    public LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(String checkIn) {
+    public void setCheckIn(LocalDate checkIn) {
         this.checkIn = checkIn;
     }
 
-    public String getCheckOut() {
+    public LocalDate getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(String checkOut) {
+    public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
 

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
@@ -12,6 +13,7 @@ import javafx.scene.control.Slider;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
+import com.example.RoomSearch;
 
 
 public class FiltersController implements Initializable {
@@ -48,10 +50,10 @@ public class FiltersController implements Initializable {
     private Integer[] bathrooms = {1,2,3};
 
     @FXML
-    private boolean pets;
+    private CheckBox pets;
 
     @FXML
-    private boolean smoking;
+    private CheckBox smoking;
 
 
     
@@ -71,11 +73,28 @@ public class FiltersController implements Initializable {
         //numBathrooms.getItems().addAll(bathrooms);
     }
 
+    @FXML
+    private void search(){
+        RoomSearch search = new RoomSearch();
+        search.setCity(locationBox.getValue());
+        search.setMinPrice((int)minPriceSlider.getValue());
+        search.setMaxPrice((int)maxPriceSlider.getValue());
+        search.setCheckIn(checkInDate.getValue());
+        search.setCheckOut(checkOutDate.getValue());
+        search.setNumBeds(numBeds.getValue());
+        search.setNumBathroom(numBathrooms.getValue());
+        search.setPets(pets.isSelected());
+        search.setSmoking(smoking.isSelected());
+        //search.search();
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //loadData();
         locationBox.getItems().addAll(Hotels);
         numBeds.getItems().addAll(beds);
         numBathrooms.getItems().addAll(bathrooms);
+
     }
+
 }
