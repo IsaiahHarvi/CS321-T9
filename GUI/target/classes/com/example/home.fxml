@@ -10,7 +10,7 @@
    <children>
       <Button layoutX="378.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToFilters" prefHeight="35.0" prefWidth="244.0" style="-fx-background-color: lightblue; -fx-background-radius: 5cm;" text="Check  In" AnchorPane.leftAnchor="378.0" AnchorPane.rightAnchor="378.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Big Caslon Medium" size="18.0" />
          </font></Button>
       <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="350.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,7 @@
       </ImageView>
       <Button layoutX="378.0" layoutY="577.0" mnemonicParsing="false" style="-fx-background-radius: 5cm;" text="Check Out (disabled for now)">
          <font>
-            <Font size="18.0" />
+            <Font name="Big Caslon Medium" size="18.0" />
          </font>
       </Button>
    </children>
