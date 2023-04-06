@@ -1,5 +1,5 @@
 package com.example;
-
+// comment
 public class GuestInfo {
     private string name;
     private int guestNum;
