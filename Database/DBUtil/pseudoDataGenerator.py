@@ -127,8 +127,8 @@ class DataGenerator:
                 guest_No INT,
                 hotel_No INT,
                 room_No INT,
-                check_in_date DATE,
-                check_out_date DATE,
+                check_in_date STRING,
+                check_out_date STRING,
                 --PRIMARY KEY (hotel_No, room_No, check_in_date),
                 FOREIGN KEY (guest_No) REFERENCES Guest(guest_No),
                 FOREIGN KEY (hotel_No) REFERENCES Hotel(hotel_No),
@@ -159,7 +159,7 @@ class DataGenerator:
         print(f"\n\nCreating Rooms for Hotel {self.hotelNum}...")
         self.roomAmount = random.choice([1000, 2000, 3000, 4000, 5000])
         for i in range(1, self.roomAmount):
-            self.roomSize = random.choice([2,4,5])
+            self.roomSize = random.choice([2,3,4,5])
             self.roomNumber = i
             self.DB.execute(f"INSERT INTO Room VALUES ({self.roomNumber}, {self.hotelNum}, {self.roomSize}, {random.choice([True, False])}, {random.choice([True, False])}, {random.randint(80,100) if self.roomSize == 2 else random.randint(110, 300)})")
             self.generatePsuedoGuests()
