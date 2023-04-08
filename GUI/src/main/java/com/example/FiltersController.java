@@ -83,7 +83,10 @@ public class FiltersController implements Initializable {
 
     @FXML
     private String search(){
+        // Create filter object
         RoomSearch search = new RoomSearch();
+
+        // Create application object to pass filter object to
         App application = new App();
 
         search.setCity(locationBox.getValue());
@@ -95,11 +98,11 @@ public class FiltersController implements Initializable {
         search.setNumBathroom(numBathrooms.getValue());
         search.setPets(pets.isSelected());
         search.setSmoking(smoking.isSelected());
-        //search.search();
 
+        // Send filter object to App.java
         application.recieveRoomSearch(search);
-        return search.toString();
 
+        return search.toString();
     }
 
 
