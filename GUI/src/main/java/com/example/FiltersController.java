@@ -84,6 +84,8 @@ public class FiltersController implements Initializable {
     @FXML
     private String search(){
         RoomSearch search = new RoomSearch();
+        App application = new App();
+
         search.setCity(locationBox.getValue());
         search.setMinPrice((int)minPriceSlider.getValue());
         search.setMaxPrice((int)maxPriceSlider.getValue());
@@ -94,6 +96,8 @@ public class FiltersController implements Initializable {
         search.setPets(pets.isSelected());
         search.setSmoking(smoking.isSelected());
         //search.search();
+
+        application.recieveRoomSearch(search);
         return search.toString();
 
     }
