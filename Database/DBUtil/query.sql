@@ -21,4 +21,8 @@ WHERE first_name = 'John' AND last_name = 'Doe';
 --GET LAST GUEST ADDED NUMBER
 SELECT MAX(guest_No) as largestGuestNumber FROM Guest
 
+
+--GET ROOMS WIHTOUT CONFLICTING BOOKINGS
+SELECT hotel_No, room_No FROM Room WHERE (hotel_No, room_No) NOT IN (SELECT hotel_No, room_No FROM Booking WHERE check_in_date <= ? AND check_out_date > ?)
 */
+
