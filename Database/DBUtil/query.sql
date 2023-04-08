@@ -34,7 +34,23 @@ WHERE smoking = 1;
 --GET ROOMS WITH PETS
 SELECT * FROM Room
 WHERE pets = 1;
-*/
 
+
+--GET SPECIFIC SIZE
+SELECT * FROM Room
+WHERE size > ?;
+
+
+--GET SPECIFIC PRICE
+SELECT * FROM Room
+WHERE price >= ? AND price <= ?;
+
+
+--GET ROOMS FROM SPECIFIC HOTEL
+SELECT room_No, size, smoking, pet, price
+FROM Room
+JOIN Hotel ON Room.hotel_No = Hotel.hotel_No
+WHERE Hotel.name = 'Hotel California';
+*/
 
 
