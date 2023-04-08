@@ -5,10 +5,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
 
 
-public class PrimaryController implements Initializable{
+
+public class HomeController implements Initializable{
     
 
 
@@ -24,10 +24,11 @@ public class PrimaryController implements Initializable{
 
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void switchToFilters() throws IOException {
+        App.setRoot("filters");
     }
 
+    //does nothin yet
     private void loadData(){
         //test.getItems().addAll(testwords);
         //locationBox.getItems().addAll(Hotels);
