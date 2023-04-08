@@ -1,14 +1,23 @@
 package com.example;
 // comment
 public class GuestInfo {
-    private string name;
+    private String name;
     private int guestNum;
     private int cardNum;
-    private string email;
-    private string phoneNum;
+    private String email;
+    private String phoneNum;
     private int roomNum;
 
-    public GuestInfo(string name, int guestNum, int cardNum, string email, string phoneNum, int roomNum){
+    public GuestInfo(){
+        this.name = "";
+        this.guestNum = 0;
+        this.cardNum = 0;
+        this.email = "";
+        this.phoneNum = "";
+        this.roomNum = 0;
+    }
+
+    public GuestInfo(String name, int guestNum, int cardNum, String email, String phoneNum, int roomNum){
         this.name = name;
         this.guestNum = guestNum;
         this.cardNum = cardNum;
@@ -17,34 +26,34 @@ public class GuestInfo {
         this.roomNum = roomNum;
     }
 
-    public void setName(string name){
+    public void setName(String name){
         this.name = name;
     }
-    public string getName(){
+    public String getName(){
         return this.name;
     }
-    public void setGuestNum(string num){
+    public void setGuestNum(int num){
         this.guestNum = num;
     }
-    public string getGuestNum(){
+    public int getGuestNum(){
         return this.guestNum;
     }    
-    public void setCardNum(string cardNum){
+    public void setCardNum(int cardNum){
         this.cardNum = cardNum;
     }
-    public string getCardNum(){
+    public int getCardNum(){
         return this.cardNum;
     }    
-    public void setEmail(string email){
+    public void setEmail(String email){
         this.email = email;
     }
-    public string getEmail(){
+    public String getEmail(){
         return this.email;
     }    
-    public void setPhoneNum(string phoneNum){
+    public void setPhoneNum(String phoneNum){
         this.phoneNum = phoneNum;
     }
-    public string getPhoneNum(){
+    public String getPhoneNum(){
         return this.phoneNum;
     }
     public void setRoomNum(int roomNum){
@@ -52,13 +61,5 @@ public class GuestInfo {
     }
     public int getRoomNum(){
         return this.roomNum;
-    }
-
-    GuestInfo(){
-        GuestName = "Neo Matrix";
-        GuestNum = 00000001;
-        GuestCardNum = 12345678;
-        GuestEmail = "iamtheone@gmail.com";
-        GuestPhoneNum = 0000000001;
     }
 }

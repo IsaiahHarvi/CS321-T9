@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -55,6 +56,12 @@ public class FiltersController implements Initializable {
     @FXML
     private CheckBox smoking;
 
+    @FXML 
+    private Button previous;
+
+    @FXML 
+    private Button next;
+
 
     
     @FXML
@@ -64,6 +71,7 @@ public class FiltersController implements Initializable {
     @FXML 
     private void switchToResults() throws IOException{
         App.setRoot("results");
+        System.out.println(search());
     }
     @FXML   
     private void loadData(){
@@ -74,7 +82,7 @@ public class FiltersController implements Initializable {
     }
 
     @FXML
-    private void search(){
+    private String search(){
         RoomSearch search = new RoomSearch();
         search.setCity(locationBox.getValue());
         search.setMinPrice((int)minPriceSlider.getValue());
@@ -86,7 +94,12 @@ public class FiltersController implements Initializable {
         search.setPets(pets.isSelected());
         search.setSmoking(smoking.isSelected());
         //search.search();
+        return search.toString();
+
     }
+
+
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

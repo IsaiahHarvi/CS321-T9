@@ -29,6 +29,19 @@ public class RoomSearch {
         this.smoking = smoking;
     }
 
+    public String toString(){
+        /*return city;
+        return Integer.toString(minPrice);
+        return Integer.toString(maxPrice);
+        return checkIn.toString();
+        return checkOut.toString();
+        return Integer.toString(numBeds);
+        return Integer.toString(numBathroom);
+        return Boolean.toString(pets);
+        return Boolean.toString(smoking);*/
+        return "City: " + city + " \nMin Price: " + minPrice + " \nMax Price: " + maxPrice + " \nCheck In: " + checkIn + " \nCheck Out: " + checkOut + " \nNumber of Beds: " + numBeds + " \nNumber of Bathrooms: " + numBathroom + " \nPets: " + pets + " \nSmoking: " + smoking;
+    }
+
     public String getCity() {
         return city;
     }
