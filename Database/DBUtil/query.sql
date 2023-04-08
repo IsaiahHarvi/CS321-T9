@@ -24,5 +24,17 @@ SELECT MAX(guest_No) as largestGuestNumber FROM Guest
 
 --GET ROOMS WIHTOUT CONFLICTING BOOKINGS
 SELECT hotel_No, room_No FROM Room WHERE (hotel_No, room_No) NOT IN (SELECT hotel_No, room_No FROM Booking WHERE check_in_date <= ? AND check_out_date > ?)
+
+
+--GET ROOMS WITH SMOKING
+SELECT * FROM Room
+WHERE smoking = 1;
+
+
+--GET ROOMS WITH PETS
+SELECT * FROM Room
+WHERE pets = 1;
 */
+
+
 
