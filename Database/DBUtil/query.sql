@@ -51,6 +51,21 @@ SELECT room_No, size, smoking, pet, price
 FROM Room
 JOIN Hotel ON Room.hotel_No = Hotel.hotel_No
 WHERE Hotel.name = 'Hotel California';
+
+
+--COMBINED QUERY USING ALL OF THE PARAMETERS
+SELECT r.room_No, r.size, r.smoking, r.pets, r.price
+FROM Room r
+JOIN Hotel h ON r.hotel_No = h.hotel_No
+WHERE h.name = ?
+AND r.smoking = 1
+AND r.pets = 1
+AND r.size > ?
+AND r.price >= ? AND r.price <= ?
+AND NOT EXISTS (
+    SELECT *
+    FROM Booking b
+    WHERE b.hotel_No = r.hotel_No AND b.room_No = r.room_No
+    AND b.check_in_date <= ? AND b.check_out_date > ?
+)
 */
-
-
