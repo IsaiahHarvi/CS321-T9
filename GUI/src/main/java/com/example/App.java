@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 import java.io.File;
 
+import java.sql.Statement; //I think this will fix the issue but im not sure - Casey 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

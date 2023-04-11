@@ -43,12 +43,9 @@ public class FiltersController implements Initializable {
     private DatePicker checkOutDate;
 
     @FXML   
-    private ChoiceBox<Integer> numBeds = new ChoiceBox<>();
-    private Integer[] beds = {1,2,3};
-    
-    @FXML
-    private ChoiceBox<Integer> numBathrooms  = new ChoiceBox<>();
-    private Integer[] bathrooms = {1,2,3};
+    private ChoiceBox<Integer> size = new ChoiceBox<>();
+    private Integer[] sizeOptions = {2,4,5};
+
 
     @FXML
     private CheckBox pets;
@@ -94,8 +91,9 @@ public class FiltersController implements Initializable {
         search.setMaxPrice((int)maxPriceSlider.getValue());
         search.setCheckIn(checkInDate.getValue());
         search.setCheckOut(checkOutDate.getValue());
-        search.setNumBeds(numBeds.getValue());
-        search.setNumBathroom(numBathrooms.getValue());
+
+        search.setSize(size.getValue());
+
         search.setPets(pets.isSelected());
         search.setSmoking(smoking.isSelected());
 
@@ -112,9 +110,7 @@ public class FiltersController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         //loadData();
         locationBox.getItems().addAll(Hotels);
-        numBeds.getItems().addAll(beds);
-        numBathrooms.getItems().addAll(bathrooms);
-
+        size.getItems().addAll(sizeOptions);
     }
 
 }

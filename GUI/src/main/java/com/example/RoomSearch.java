@@ -9,22 +9,24 @@ public class RoomSearch {
     private int maxPrice;
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private int numBeds;
-    private int numBathroom;
+
+    private int size;
+
+
     private boolean pets;
     private boolean smoking;
 
 
     public RoomSearch() {
     }
-    public RoomSearch(String city, int minPrice, int maxPrice, LocalDate checkIn, LocalDate checkOut, int numBeds, int numBathroom, boolean pets, boolean smoking) {
+    public RoomSearch(String city, int minPrice, int maxPrice, LocalDate checkIn, LocalDate checkOut, int size, boolean pets, boolean smoking) {
         this.city = city;
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        this.numBeds = numBeds;
-        this.numBathroom = numBathroom;
+        this.size = size;
+
         this.pets = pets;
         this.smoking = smoking;
     }
@@ -39,7 +41,7 @@ public class RoomSearch {
         return Integer.toString(numBathroom);
         return Boolean.toString(pets);
         return Boolean.toString(smoking);*/
-        return "City: " + city + " \nMin Price: " + minPrice + " \nMax Price: " + maxPrice + " \nCheck In: " + checkIn + " \nCheck Out: " + checkOut + " \nNumber of Beds: " + numBeds + " \nNumber of Bathrooms: " + numBathroom + " \nPets: " + pets + " \nSmoking: " + smoking;
+        return "City: " + city + " \nMin Price: " + minPrice + " \nMax Price: " + maxPrice + " \nCheck In: " + checkIn + " \nCheck Out: " + checkOut + " \nRoom Size:  "+ size+ " \nPets: " + pets + " \nSmoking: " + smoking;
     }
 
     public String getCity() {
@@ -82,20 +84,12 @@ public class RoomSearch {
         this.checkOut = checkOut;
     }
 
-    public int getNumBeds() {
-        return numBeds;
+    public int getSize() {
+        return size;
     }
 
-    public void setNumBeds(int numBeds) {
-        this.numBeds = numBeds;
-    }
-
-    public int getNumBathroom() {
-        return numBathroom;
-    }
-
-    public void setNumBathroom(int numBathroom) {
-        this.numBathroom = numBathroom;
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public boolean isPets() {
