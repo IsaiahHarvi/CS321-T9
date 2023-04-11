@@ -5,14 +5,14 @@
 package com.example.hotel;
 
 import javafx.scene.control.DatePicker;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class RoomSearch {
     private String city;
     private int minPrice;
     private int maxPrice;
-    private LocalDate checkIn;
-    private LocalDate checkOut;
+    private Date checkIn;
+    private Date checkOut;
 
     private int size;
 
@@ -23,7 +23,7 @@ public class RoomSearch {
 
     public RoomSearch() {
     }
-    public RoomSearch(String city, int minPrice, int maxPrice, LocalDate checkIn, LocalDate checkOut, int size, boolean pets, boolean smoking) {
+    public RoomSearch(String city, int minPrice, int maxPrice, Date checkIn, Date checkOut, int size, boolean pets, boolean smoking) {
         this.city = city;
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
@@ -72,19 +72,19 @@ public class RoomSearch {
         this.maxPrice = maxPrice;
     }
 
-    public LocalDate getCheckIn() {
+    public Date getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(LocalDate checkIn) {
+    public void setCheckIn(Date checkIn) {
         this.checkIn = checkIn;
     }
 
-    public LocalDate getCheckOut() {
+    public Date getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(LocalDate checkOut) {
+    public void setCheckOut(Date checkOut) {
         this.checkOut = checkOut;
     }
 

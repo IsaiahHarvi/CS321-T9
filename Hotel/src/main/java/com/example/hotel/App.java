@@ -82,18 +82,17 @@ public class App extends Application {
 
 
     // Get all available rooms based on the parameters set by roomSearch object
-    public void getAvailableRooms() {
+    public ResultSet getAvailableRooms(RoomSearch roomSearch) {
         // Create ResultsController Object to send result set to ResultsController.java
         ResultsController resultsController = new ResultsController();
-
+        ResultSet rs = null;
         try (Connection conn = this.connection()) {
-            Statement stmnt = conn.createStatement();
-            ResultSet rs = stmnt.executeQuery(
-                "SELECT r.room_No, r.size, r.smoking, r.pets, r.price FROM Room r\n" +
+            PreparedStatement pstmnt = conn.prepareStatement(
+                "SELECT r.room_No, r.size, r.smoking, r.pet, r.price FROM Room r\n" +
                 "JOIN Hotel h ON r.hotel_No = h.hotel_No\n" +
                 "WHERE h.name = ?\n" +
-                "AND r.smoking = 1\n" +
-                "AND r.pets = 1\n" +
+                "AND r.smoking = ?\n" +
+                "AND r.pet = ?\n" +
                 "AND r.size > ?\n" +
                 "AND r.price >= ? AND r.price <= ?\n" +
                 "AND NOT EXISTS (\n" +
@@ -102,32 +101,43 @@ public class App extends Application {
                     "WHERE b.hotel_No = r.hotel_No AND b.room_No = r.room_No\n" +
                     "AND b.check_in_date <= ? AND b.check_out_date > ?\n" +
                 ")");
+            pstmnt.setString(1, roomSearch.getCity());
+            pstmnt.setBoolean(2, roomSearch.isSmoking());
+            pstmnt.setBoolean(3, roomSearch.isPets());
+            pstmnt.setInt(4, roomSearch.getSize());
+            pstmnt.setInt(5, roomSearch.getMinPrice());
+            pstmnt.setInt(6, roomSearch.getMaxPrice());
+            pstmnt.setDate(7, roomSearch.getCheckIn());
+            pstmnt.setDate(8, roomSearch.getCheckOut());
             
-            /* 
-            Debug Option to Iterate through the ResultSet
-            int limit = 0;
-            while (rs.next() and limit < 30) {
-                int id = rs.getInt("room_No");
-                int size = rs.getInt("hotel_No");
-                System.out.print(id + " " + size + " ");
-                limit++;
+            rs = pstmnt.executeQuery();
+            
+            int num = 1;
+            while (rs.next()) {
+                
+                int rsRoomNo = rs.getInt("room_No");
+                int rsSize = rs.getInt("size");
+                boolean rsSmoking = rs.getBoolean("smoking");
+                boolean rsPet = rs.getBoolean("pet");
+                double rsPrice = rs.getDouble("price");
+                
+                System.out.println("\n\nResult Set " + num);
+                System.out.println("Room No: " + rsRoomNo);
+                System.out.println("Size: " + rsSize);
+                System.out.println("Smoking: " + rsSmoking);
+                System.out.println("Pet: " + rsPet);
+                System.out.println("Price: " + rsPrice);
+                num++;
             }
-            */
 
-            // Send ResultSet to ResultsController.java
-            //resultsController.recieveResultSet(rs);
-
+            System.out.println("\n" + num + " Available Rooms\n");
+            return rs;
             
-            
-            rs.close();
-            stmnt.close();
-            
-            // Maybe conn.close() here? - HARVI
-
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        
+        return rs;
     }
 
 

@@ -14,6 +14,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
+import java.sql.Date;
 
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
@@ -76,7 +77,7 @@ public class FiltersController implements Initializable {
         //System.out.println(search());
         
         App app = new App();
-        app.recieveRoomSearch(search());
+        //app.recieveRoomSearch(search());
         app.printRS(search());
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
         //ResultsController resultsController = loader.getController();
@@ -90,20 +91,25 @@ public class FiltersController implements Initializable {
         // Create application object to pass filter object to
         App application = new App();
 
+        
+        // Use function from app.java that returns a resultset
         search.setCity(locationBox.getValue());
         search.setMinPrice((int)minPriceSlider.getValue());
         search.setMaxPrice((int)maxPriceSlider.getValue());
-        search.setCheckIn(checkInDate.getValue());
-        search.setCheckOut(checkOutDate.getValue());
-
+        search.setCheckIn(Date.valueOf(checkInDate.getValue()));
+        search.setCheckOut(Date.valueOf(checkOutDate.getValue()));
         search.setSize(size.getValue());
-
         search.setPets(pets.isSelected());
         search.setSmoking(smoking.isSelected());
 
         // Send filter object to App.java
         //application.recieveRoomSearch(search);
+        
+        application.getAvailableRooms(search);
         return search;
+        
+        // Use function from app.java that returns a resultset
+        
         //return search.toString();
     }
   
