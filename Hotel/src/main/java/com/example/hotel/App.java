@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Date;
 import java.util.Scanner;
 import java.io.File;
 
@@ -83,6 +84,11 @@ public class App extends Application {
     }
 
 
+    public void insertReservation(int phone, int hotel_No, int room_No, Date check_in_date, Date check_out_date) {
+        // TODO: guestID is guestPhone
+    }
+    
+    
     // Get all available rooms based on the parameters set by roomSearch object
     public ResultSet getAvailableRooms(RoomSearch roomSearch) {
         // Create ResultsController Object to send result set to ResultsController.java
