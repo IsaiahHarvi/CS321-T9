@@ -22,6 +22,7 @@
             <Image url="@../../../images/MicrosoftTeams-image%20(1).png" />
          </image>
       </ImageView>
-      <ListView fx:id="list" layoutX="239.0" layoutY="158.0" prefHeight="577.0" prefWidth="514.0" />
+      <ListView fx:id="list" layoutX="262.0" layoutY="220.0" prefHeight="499.0" prefWidth="508.0" />
+      <Button layoutX="800.0" layoutY="436.0" mnemonicParsing="false" onAction="#addDataToListView" text="Button" />
    </children>
 </AnchorPane>

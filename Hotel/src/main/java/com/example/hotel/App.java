@@ -116,11 +116,7 @@ public class App extends Application {
             
             int num = 1;
             ResultsController r1 = new ResultsController();
-            
-            
             ObservableList<ResultSet> results = FXCollections.observableArrayList();
-            
-            
             while (rs.next()) {
                 
                 int rsRoomNo = rs.getInt("room_No");
@@ -135,16 +131,15 @@ public class App extends Application {
                 System.out.println("Smoking: " + rsSmoking);
                 System.out.println("Pet: " + rsPet);
                 System.out.println("Price: " + rsPrice);*/
+                r1.setResultsData(rs);
+                
                 
                 results.add(rs);
                 num++;
             }
-            for(ResultSet r : results)
-            {
-                //System.out.println(r.toString());
-            }
-            r1.setList(results);
-            System.out.println("\n" + num + " Available Rooms\n");
+            r1.printResults();
+            
+            //System.out.println("\n" + num + " Available Rooms\n");
             return rs;
             
         } catch (SQLException e) {
