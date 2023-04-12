@@ -12,10 +12,63 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.sql.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 
 
 public class ResultsController implements Initializable {
 
+    @FXML
+    ListView<ResultSet> list = new ListView<ResultSet>();
+    @FXML
+    ObservableList<ResultSet> results = FXCollections.observableArrayList();
+    
+    public void setList(ObservableList<ResultSet> resultSetArray){
+        for(ResultSet r : resultSetArray)
+            {
+                System.out.println(r.toString());
+                list.getItems().addAll(r);
+            }
+        
+    }
+    
+    
+    /*@FXML
+    public void setList(ResultSet rs) throws SQLException
+    {
+        int num=0;
+        while(rs.next())
+        {
+            results.add(rs);
+            
+            
+            int rsRoomNo = rs.getInt("room_No");
+            int rsSize = rs.getInt("size");
+            boolean rsSmoking = rs.getBoolean("smoking");
+            boolean rsPet = rs.getBoolean("pet");
+            double rsPrice = rs.getDouble("price");
+                
+            System.out.println("\n\nResult Set " + num);
+            System.out.println("Room No: " + rsRoomNo);
+            System.out.println("Size: " + rsSize);
+            System.out.println("Smoking: " + rsSmoking);
+            System.out.println("Pet: " + rsPet);
+            System.out.println("Price: " + rsPrice);
+            
+            
+        }
+        list.setItems(results);
+        System.out.println(list.toString()+"\n");
+       
+    }*/
+    
+    
+    
+    //private void 
+    
+    
+    
     @FXML
     private void switchToFilters() throws IOException {
         App.setRoot("filters");
@@ -25,9 +78,12 @@ public class ResultsController implements Initializable {
         App.setRoot("guest");
     }
 
+   
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         /*something goes here */
+        list.getItems().add(null);
+        
     }
 
     // Recieve resultSet object from App.java

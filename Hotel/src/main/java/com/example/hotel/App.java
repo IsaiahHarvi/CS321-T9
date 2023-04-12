@@ -20,6 +20,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * JavaFX App
@@ -113,6 +115,12 @@ public class App extends Application {
             rs = pstmnt.executeQuery();
             
             int num = 1;
+            ResultsController r1 = new ResultsController();
+            
+            
+            ObservableList<ResultSet> results = FXCollections.observableArrayList();
+            
+            
             while (rs.next()) {
                 
                 int rsRoomNo = rs.getInt("room_No");
@@ -121,15 +129,21 @@ public class App extends Application {
                 boolean rsPet = rs.getBoolean("pet");
                 double rsPrice = rs.getDouble("price");
                 
-                System.out.println("\n\nResult Set " + num);
+                /*System.out.println("\n\nResult Set " + num);
                 System.out.println("Room No: " + rsRoomNo);
                 System.out.println("Size: " + rsSize);
                 System.out.println("Smoking: " + rsSmoking);
                 System.out.println("Pet: " + rsPet);
-                System.out.println("Price: " + rsPrice);
+                System.out.println("Price: " + rsPrice);*/
+                
+                results.add(rs);
                 num++;
             }
-
+            for(ResultSet r : results)
+            {
+                //System.out.println(r.toString());
+            }
+            r1.setList(results);
             System.out.println("\n" + num + " Available Rooms\n");
             return rs;
             
@@ -140,7 +154,8 @@ public class App extends Application {
         return rs;
     }
 
-
+    
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("home"), 1000, 1000);

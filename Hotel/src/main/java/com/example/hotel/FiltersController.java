@@ -78,7 +78,8 @@ public class FiltersController implements Initializable {
         
         App app = new App();
         //app.recieveRoomSearch(search());
-        app.printRS(search());
+        search();
+        //app.printRS(search());
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
         //ResultsController resultsController = loader.getController();
     }
