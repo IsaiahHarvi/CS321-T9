@@ -125,15 +125,22 @@ public class App extends Application {
                 boolean rsPet = rs.getBoolean("pet");
                 double rsPrice = rs.getDouble("price");
                 
+                String x = ""+rsRoomNo+" "+rsSize+" "+rsSmoking+" "+rsPet+" "+rsPrice;
+                //ADD THESE VARIABLES TO OBSERVABLESTRING ARRAY
+                r1.addString(x);
+                r1.refreshList();
                 /*System.out.println("\n\nResult Set " + num);
                 System.out.println("Room No: " + rsRoomNo);
                 System.out.println("Size: " + rsSize);
                 System.out.println("Smoking: " + rsSmoking);
                 System.out.println("Pet: " + rsPet);
                 System.out.println("Price: " + rsPrice);*/
-                r1.setResultsData(rs);
+                
+                //r1.addIntToList(rsRoomNo);
+                //r1.setResultsData(rs);
                 
                 
+                //System.out.println(rs.toString());
                 results.add(rs);
                 num++;
             }

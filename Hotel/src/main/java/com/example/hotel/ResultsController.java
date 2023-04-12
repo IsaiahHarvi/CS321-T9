@@ -33,14 +33,46 @@ public class ResultsController implements Initializable {
 
     //private ObservableList<ResultSet> data; //= FXCollections.observableArrayList();;
     
-    private List<ResultSet> resultList = new ArrayList<ResultSet>();
-    private ObservableList<ResultSet> results = FXCollections.observableArrayList(resultList);
-   
+    //private List<ResultSet> resultList = new ArrayList<ResultSet>();
+    private ObservableList<ResultSet> results = FXCollections.observableArrayList();
+    private ObservableList<String> resultString = FXCollections.observableArrayList();
+    
     @FXML 
     private ListView<String> list = new ListView<>();
     
+    public void addString(String s){
+    
+        resultString.add(s);
+        //System.out.println(s);
+        //System.out.println(resultString.toString()+"\n\n");
+        //list.setItems(resultString);
+        list.getItems().addAll(resultString);
+        refreshList();
+        //list.refresh();
+        
+    }
+    public void refreshList(){list.refresh();}
+    
+    public void printResults(){
+        for(String s: resultString){
+            System.out.println(resultString);
+        }
+        refreshList();
+    }
+    
+    
+    /*public void addIntToList(int i){    list.getItems().addAll(i);        }
+   
+    public void refreshList() throws SQLException{
+        System.out.println(list.getItems().toString());
+        for(ResultSet r:results){
+            Integer roomNumber = r.getInt("room_No");
+            list.getItems().addAll(roomNumber);
+        }
+    }
+    
     public void addDataToListView(){
-        list.getItems().addAll(results.toString());
+        //list.getItems().addAll(results.toString());
         System.out.println("RESULTS HAVE BEEN ADDED");
     }
     
@@ -50,14 +82,10 @@ public class ResultsController implements Initializable {
     
     public void printResults(){
         System.out.println(results.toString());
-    }
+    }*/
    
     
 
-    @Override
-    public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
     @FXML
     private void switchToFilters() throws IOException {
         App.setRoot("filters");
