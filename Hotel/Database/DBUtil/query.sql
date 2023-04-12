@@ -52,6 +52,3 @@ FROM Room
 JOIN Hotel ON Room.hotel_No = Hotel.hotel_No
 WHERE Hotel.name = 'Hotel California';
 */
-SELECT *
-FROM Guest
-WHERE Guest.guest_No = 'NULL';

@@ -9,8 +9,8 @@ WHERE Guest.first_name = 'John' AND Guest.last_name = 'Doe'
 
 --REMOVE GUEST AND BOOKING BY FIRST AND LAST NAME
 DELETE FROM Booking
-WHERE guest_No IN (
-    SELECT guest_No FROM Guest
+WHERE phone IN (
+    SELECT phone FROM Guest
     WHERE first_name = 'John' AND last_name = 'Doe'
 );
 
