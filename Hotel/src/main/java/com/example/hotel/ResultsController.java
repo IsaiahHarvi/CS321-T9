@@ -20,106 +20,48 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
-public class ResultsController implements Initializable {
-
-    //private ObservableList<ResultSet> data; //= FXCollections.observableArrayList();;
+public class ResultsController {
+    @FXML
+    ListView<String> list = new ListView<>();
     
-    //private List<ResultSet> resultList = new ArrayList<ResultSet>();
-    private ObservableList<ResultSet> results = FXCollections.observableArrayList();
-    private ObservableList<String> resultString = FXCollections.observableArrayList();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     
-    @FXML 
-    private ListView<String> list = new ListView<>();
-    
-    public void addString(String s){
-    
-        resultString.add(s);
-        //System.out.println(s);
-        //System.out.println(resultString.toString()+"\n\n");
-        //list.setItems(resultString);
-        list.getItems().addAll(resultString);
-        refreshList();
-        //list.refresh();
-        
-    }
-    public void refreshList(){list.refresh();}
-    
-    public void printResults(){
-        for(String s: resultString){
-            System.out.println(resultString);
-        }
-        refreshList();
+    public void displayListView(ObservableList<String> s){
+        list.getItems().addAll(s);
     }
     
-    
-    /*public void addIntToList(int i){    list.getItems().addAll(i);        }
-   
-    public void refreshList() throws SQLException{
-        System.out.println(list.getItems().toString());
-        for(ResultSet r:results){
-            Integer roomNumber = r.getInt("room_No");
-            list.getItems().addAll(roomNumber);
-        }
-    }
-    
-    public void addDataToListView(){
-        //list.getItems().addAll(results.toString());
-        System.out.println("RESULTS HAVE BEEN ADDED");
-    }
-    
-    public void setResultsData (ResultSet rs) {   
-            results.add(rs);
-    }
-    
-    public void printResults(){
-        System.out.println(results.toString());
-    }*/
-   
-    
-
     @FXML
     private void switchToFilters() throws IOException {
         App.setRoot("filters");
     }
 
-    @FXML void switchToGuest() throws IOException{
-        App.setRoot("guest");
-    }
-
-   
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        /*something goes here */
+    @FXML
+    public void switchToGuest(ActionEvent event) throws IOException{
         
-    }
-
-    
-    // Recieve resultSet object from App.java
-    public void recieveResultSet(ResultSet rs) throws SQLException {
-        System.out.println("Recieved ResultSet Object.");
-        int limit = 0;
-
-         //Debug Option to Iterate through the ResultSet
-            while (rs.next() && limit < 30) {
-                int id = rs.getInt("room_No");
-                int size=0;
-                try {
-                    size = rs.getInt("hotel_No");
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                System.out.print(id + " " + size + " ");
-                limit++;
-            }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("guest.fxml"));
+        root = loader.load();
+        GuestController guestController = loader.getController();
+        guestController.AddGuestToDataBase();
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

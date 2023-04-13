@@ -8,11 +8,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 
 public class ConfirmationController implements Initializable {
+    
+    @FXML
+    Label myLabel;
 
-
+    @FXML
+    public void setLabel(String s){myLabel.setText(s);} 
     @FXML
     private void switchToHome() throws IOException {
         App.setRoot("home");

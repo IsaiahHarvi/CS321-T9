@@ -23,6 +23,5 @@
          </image>
       </ImageView>
       <ListView fx:id="list" layoutX="262.0" layoutY="220.0" prefHeight="499.0" prefWidth="508.0" />
-      <Button layoutX="800.0" layoutY="436.0" mnemonicParsing="false" onAction="#refreshList" text="Button" />
    </children>
 </AnchorPane>

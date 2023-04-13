@@ -52,3 +52,7 @@ FROM Room
 JOIN Hotel ON Room.hotel_No = Hotel.hotel_No
 WHERE Hotel.name = 'Hotel California';
 */
+--SELECT SPECIFIC GUEST BASED ON NAME
+SELECT * 
+FROM Guest
+WHERE Guest.first_name = 'Duck' AND Guest.last_name = 'Goose'
