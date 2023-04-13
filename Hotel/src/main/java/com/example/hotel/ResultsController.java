@@ -38,18 +38,33 @@ import javafx.util.Callback;
 public class ResultsController {
     @FXML
     ListView<String> list = new ListView<>();
-    
+    ArrayList<String> tempList = new ArrayList<>();
     private Stage stage;
     private Scene scene;
     private Parent root;
     
-    public void displayListView(ObservableList<String> s){
+    private Parent homeRoot;
+    public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
+    
+    private Parent filtersRoot;
+    public void setFiltersRoot(Parent filtersRoot){this.filtersRoot=filtersRoot;}
+    
+    //ObservableList<String> s
+    public void displayListView(ArrayList<String> s){
         list.getItems().addAll(s);
+        tempList=s;
     }
+    public void refreshList(){list.refresh();} 
     
     @FXML
-    private void switchToFilters() throws IOException {
-        App.setRoot("filters");
+    private void switchToFilters(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("filters.fxml"));
+        filtersRoot = loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(filtersRoot);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -57,8 +72,13 @@ public class ResultsController {
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("guest.fxml"));
         root = loader.load();
+        
         GuestController guestController = loader.getController();
-        guestController.AddGuestToDataBase();
+        //guestController.AddGuestToDataBase();
+        guestController.setHomeRoot(homeRoot);
+        guestController.setResultRoot(this.root);
+        guestController.setList(tempList);
+        
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

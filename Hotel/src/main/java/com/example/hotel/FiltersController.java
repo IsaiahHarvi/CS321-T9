@@ -26,6 +26,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,11 +37,15 @@ import javafx.stage.Stage;
 
 public class FiltersController implements Initializable {
     @FXML
-    private ObservableList<String> results = FXCollections.observableArrayList();
+    private ArrayList<String> results = new ArrayList<>();
+    //private ObservableList<String> results = FXCollections.observableArrayList();
     
     private Stage stage;
     private Scene scene;
+    
     private Parent root;
+    private Parent homeRoot;
+    public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
 
     @FXML
     private ChoiceBox<String> locationBox = new ChoiceBox<>();
@@ -72,8 +77,14 @@ public class FiltersController implements Initializable {
     private Button next;
     
     @FXML
-    private void switchToHome() throws IOException {
-        App.setRoot("home");
+    private void switchToHome(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
+        homeRoot = loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(homeRoot);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML 
     public void switchToResults(ActionEvent event) throws IOException{
@@ -81,8 +92,12 @@ public class FiltersController implements Initializable {
         System.out.println(results.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
         root = loader.load();
+        
         ResultsController resultController = loader.getController();
         resultController.displayListView(results);
+        resultController.setHomeRoot(homeRoot);
+        resultController.setFiltersRoot(this.root);
+        
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -114,7 +129,7 @@ public class FiltersController implements Initializable {
     // Connect to Hotel.db
     private Connection connection() {
         Connection connect = null;
-        String url = ("jdbc:sqlite:" + new File("Database\\Hotel.db").getAbsolutePath());
+        String url = ("jdbc:sqlite:" + new File("Database/Hotel.db").getAbsolutePath());
         System.out.println(url);
         try {
             Class.forName("org.sqlite.JDBC");
