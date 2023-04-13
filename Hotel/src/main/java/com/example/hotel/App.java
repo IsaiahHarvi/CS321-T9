@@ -69,7 +69,7 @@ public class App extends Application {
         // Connect to Hotel.db
     private Connection connection() {
         Connection connect = null;
-        String url = ("jdbc:sqlite:" + new File("src\\main\\java\\Database\\Hotel.db").getAbsolutePath());
+        String url = ("jdbc:sqlite:" + new File("src//main//java//Database//Hotel.db").getAbsolutePath());
         System.out.println(url);
         try {
             Class.forName("org.sqlite.JDBC");
