@@ -25,3 +25,5 @@ replay_pid*
 
 # SQLite Temp
 *.db-journal
+Hotel/target/test-classes/.netbeans_automatic_build
+Hotel/target/classes/.netbeans_automatic_build
