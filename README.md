@@ -8,4 +8,4 @@ The hotel management database software is a user-friendly Java application that 
 
 
 SQLite Databse Structure.
-![alt text](https://github.com/IsaiahHarvi/CS321-T9/blob/main/Database/DBUtil/dbStructure.png?raw=true)
+![alt text](https://github.com/IsaiahHarvi/CS321-T9/blob/casey3/Hotel/target/classes/Database/DBUtil/Hotel.db.png?raw=true)
