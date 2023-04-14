@@ -1,9 +1,1 @@
-com\example\hotel\ResultsController.class
-com\example\hotel\GuestController.class
-com\example\hotel\RoomSearch.class
 module-info.class
-com\example\hotel\FiltersController.class
-com\example\hotel\App.class
-com\example\hotel\GuestInfo.class
-com\example\hotel\HomeController.class
-com\example\hotel\ConfirmationController.class

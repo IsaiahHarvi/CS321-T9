@@ -12,41 +12,76 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 
-public class ResultsController implements Initializable {
+public class ResultsController {
+    @FXML
+    ListView<String> list = new ListView<>();
+    ArrayList<String> tempList = new ArrayList<>();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
+    private Parent homeRoot;
+    public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
+    
+    private Parent filtersRoot;
+    public void setFiltersRoot(Parent filtersRoot){this.filtersRoot=filtersRoot;}
+    
+    //ObservableList<String> s
+    public void displayListView(ArrayList<String> s){
+        list.getItems().addAll(s);
+        tempList=s;
+    }
+    public void refreshList(){list.refresh();} 
+    
+    @FXML
+    private void switchToFilters(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("filters.fxml"));
+        filtersRoot = loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(filtersRoot);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
-    private void switchToFilters() throws IOException {
-        App.setRoot("filters");
-    }
-
-    @FXML void switchToGuest() throws IOException{
-        App.setRoot("guest");
-    }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        /*something goes here */
-    }
-
-    // Recieve resultSet object from App.java
-    public void recieveResultSet(ResultSet rs) throws SQLException {
-        System.out.println("Recieved ResultSet Object.");
-        int limit = 0;
-
-         //Debug Option to Iterate through the ResultSet
-            while (rs.next() && limit < 30) {
-                int id = rs.getInt("room_No");
-                int size=0;
-                try {
-                    size = rs.getInt("hotel_No");
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                System.out.print(id + " " + size + " ");
-                limit++;
-            }
+    public void switchToGuest(ActionEvent event) throws IOException{
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("guest.fxml"));
+        root = loader.load();
+        
+        GuestController guestController = loader.getController();
+        //guestController.AddGuestToDataBase();
+        guestController.setHomeRoot(homeRoot);
+        guestController.setResultRoot(this.root);
+        guestController.setList(tempList);
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
