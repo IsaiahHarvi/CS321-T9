@@ -28,14 +28,18 @@ public class ConfirmationController implements Initializable {
 
     @FXML
     public void setLabel(String s){myLabel.setText(s);} 
+    
+    
+    public static Parent loadFXML(String fxml) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
     @FXML
     public void switchToHome(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
-        homeRoot = loader.load();
-        
+        scene = new Scene(loadFXML("home"), 1000, 1000);
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(homeRoot);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
     
