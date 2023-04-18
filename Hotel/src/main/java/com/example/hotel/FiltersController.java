@@ -80,7 +80,6 @@ public class FiltersController implements Initializable {
     private void switchToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
         homeRoot = loader.load();
-        
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(homeRoot);
         stage.setScene(scene);

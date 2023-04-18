@@ -48,6 +48,20 @@ public class HomeController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+    
+    @FXML
+    private void switchToCheckOut(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("checkout.fxml"));
+        root = loader.load();
+        
+        CheckOutController checkout = loader.getController();
+        checkout.setHomeRoot(this.root);
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //does nothin yet
     private void loadData(){

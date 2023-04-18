@@ -17,7 +17,7 @@
             <Image url="@../../../images/MicrosoftTeams-image%20(1).png" />
          </image>
       </ImageView>
-      <Button layoutX="378.0" layoutY="577.0" mnemonicParsing="false" style="-fx-background-radius: 5cm;" text="Check Out (disabled for now)">
+      <Button layoutX="378.0" layoutY="578.0" mnemonicParsing="false" onAction="#switchToCheckOut" prefHeight="39.0" prefWidth="244.0" style="-fx-background-radius: 5cm;" text="Check Out (disabled for now)">
          <font>
             <Font name="Big Caslon Medium" size="18.0" />
          </font>
