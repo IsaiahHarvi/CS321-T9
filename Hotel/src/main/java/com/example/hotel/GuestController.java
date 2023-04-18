@@ -44,25 +44,44 @@ public class GuestController implements Initializable {
     @FXML
     private TextField phonenumber = new TextField();
     
+    
+    @FXML
+    public String selected;
+    public void setSelected(String s){selected =s;System.out.println(selected);}
+    
+    public String checkIn,checkOut;
+    public int hotelNumber;
+    public void recieveDatesAndHotel(String in, String out,int hotelNum){checkIn=in;checkOut=out;hotelNumber=hotelNum;System.out.println(in+"\n"+out+"\n"+hotelNumber);}
+    
+    
+    public void AddResToDataBase(){
+        int hotelNo,roomNo;
+        long guestNo;
+        //pass check in and check out as strings from filters
+        guestNo = Long.parseLong(phonenumber.getText());
+        hotelNo=hotelNumber;
+        roomNo = Integer.parseInt(selected.substring(0 , selected.indexOf("\n")));
+        App app = new App();
+        app.addRes(guestNo, hotelNo, roomNo, checkIn, checkOut);
+    }
+    
+    
+    
+    
+    
     @FXML
     public void AddGuestToDataBase(){
         App app = new App();
         app.insert(firstname.getText(), lastname.getText(), email.getText(), phonenumber.getText());
         }
     
-    
-    @FXML
-    public ArrayList<String> list = new ArrayList<>();
-    public void setList(ArrayList<String> s){list = s; }
     @FXML
     private void switchToResults(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
         resultRoot = loader.load();
         ResultsController resultController = new ResultsController();
         resultController.refreshList();
-        resultController.displayListView(list);
         resultController.refreshList();
-        System.out.println(list.toString());
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(resultRoot);
         stage.setScene(scene);
@@ -76,7 +95,7 @@ public class GuestController implements Initializable {
         ConfirmationController confirmationController = loader.getController();
         confirmationController.setHomeRoot(homeRoot);
         confirmationController.setLabel("Your Information: "+s);
-        
+        AddResToDataBase();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

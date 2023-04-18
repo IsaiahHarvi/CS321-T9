@@ -66,6 +66,26 @@ public class App extends Application {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void addRes(long guestNo, int hotelNo, int roomNo, String checkIn , String checkOut){
+        String sql = "INSERT INTO Booking (guest_No,hotel_No,room_No,check_in_date,check_out_date) VALUES (?,?,?,?,?)";
+        
+        try (Connection conn = this.connection();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // System.out.println("conn: " + conn); // add this line
+
+            pstmt.setLong(1, guestNo);
+            pstmt.setInt(2, hotelNo);
+            pstmt.setInt(3, roomNo);
+            pstmt.setString(4, checkIn);
+            pstmt.setString(5, checkOut);
+            pstmt.executeUpdate();
+            System.out.println("Reservation has been added");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
         // Connect to Hotel.db
     private Connection connection() {
         Connection connect = null;
