@@ -49,7 +49,7 @@ public class FiltersController implements Initializable {
 
     @FXML
     private ChoiceBox<String> locationBox = new ChoiceBox<>();
-    private String[] Hotels = {"Hotel England","Hotel Sweden","Hotel France","Hotel Italy","Hotel Japan","Hotel Switzerland","Hotel Alabama","Hotel Arizona","Hotel Arkansas",
+    private String[] Hotels = {"Hotel England","Hotel Sweden","Hotel France","Hotel Italy","Hotel Japan","Hotel Switzerland","Hotel Alabama","Hotel Alaska","Hotel Arizona","Hotel Arkansas",
                             "Hotel California","Hotel Colorado","Hotel Connecticut","Hotel Delaware","Hotel Florida","Hotel Georgia","Hotel Hawaii","Hotel Idaho","Hotel Illinois",
                         "Hotel Indiana","Hotel Iowa","Hotel Kansas","Hotel Kentucky","Hotel Louisiana","Hotel Maine","Hotel Maryland","Hotel Massachusetts","Hotel Michigan",
                     "Hotel Minnesota","Hotel Mississippi","Hotel Missouri","Hotel Montana","Hotel Nebraska","Hotel Nevada","Hotel New Hampshire","Hotel New Jersey",
@@ -97,6 +97,9 @@ public class FiltersController implements Initializable {
         resultController.displayListView(results);
         resultController.setHomeRoot(homeRoot);
         resultController.setFiltersRoot(this.root);
+        resultController.setHotelNum(locationBox.getSelectionModel().getSelectedIndex()+1);
+        
+        resultController.recieveDates(checkInDate.getValue().toString(), checkOutDate.getValue().toString());
         
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -180,7 +183,7 @@ public class FiltersController implements Initializable {
                 boolean rsPet = rs.getBoolean("pet");
                 double rsPrice = rs.getDouble("price");
                 
-                String x = "Room Number:"+rsRoomNo+"\nRoomSize: "+rsSize+" Smoking :"+rsSmoking+" Pets :"+rsPet+"\nPrice: "+rsPrice;
+                String x = rsRoomNo+"\nRoomSize: "+rsSize+" Smoking :"+rsSmoking+" Pets :"+rsPet+"\nPrice: "+rsPrice;
                 //ADD THESE VARIABLES TO OBSERVABLESTRING ARRAY
                 results.add(x);
             }

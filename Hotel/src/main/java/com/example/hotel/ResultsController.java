@@ -38,10 +38,12 @@ import javafx.util.Callback;
 public class ResultsController {
     @FXML
     ListView<String> list = new ListView<>();
-    ArrayList<String> tempList = new ArrayList<>();
     private Stage stage;
     private Scene scene;
     private Parent root;
+    
+    public int hotelNum;
+    public void setHotelNum(int n){hotelNum = n;}
     
     private Parent homeRoot;
     public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
@@ -52,7 +54,6 @@ public class ResultsController {
     //ObservableList<String> s
     public void displayListView(ArrayList<String> s){
         list.getItems().addAll(s);
-        tempList=s;
     }
     public void refreshList(){list.refresh();} 
     
@@ -77,11 +78,19 @@ public class ResultsController {
         //guestController.AddGuestToDataBase();
         guestController.setHomeRoot(homeRoot);
         guestController.setResultRoot(this.root);
-        guestController.setList(tempList);
+        guestController.setSelected(list.getSelectionModel().getSelectedItem());
+        
+        guestController.recieveDatesAndHotel(checkIn, checkOut,hotelNum);
         
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    @FXML
+    public String checkIn,checkOut;
+    public void recieveDates(String in,String out){
+        checkIn=in;checkOut=out;
     }
 }
