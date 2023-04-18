@@ -90,6 +90,7 @@ public class CheckOutController implements Initializable{
     public void removeRes(){
         String phone = number.getText();
         deleteRes(phone);
+        number.setText("Reservation Deleted");
     }
     
     @Override

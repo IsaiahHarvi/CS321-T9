@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel.ResultsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526; -fx-border-color: gold; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel.ResultsController">
    <children>
       <Button layoutX="800.0" layoutY="800.0" mnemonicParsing="false" onAction="#switchToGuest" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 5cm; -fx-background-color: lightblue;" text="Next">
          <font>
@@ -22,6 +22,6 @@
             <Image url="@../../../images/MicrosoftTeams-image%20(1).png" />
          </image>
       </ImageView>
-      <ListView fx:id="list" layoutX="262.0" layoutY="220.0" prefHeight="499.0" prefWidth="508.0" />
+      <ListView fx:id="list" layoutX="262.0" layoutY="220.0" prefHeight="499.0" prefWidth="508.0" style="-fx-border-color: gold; -fx-border-width: 3;" />
    </children>
 </AnchorPane>

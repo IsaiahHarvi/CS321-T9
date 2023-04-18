@@ -15,14 +15,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel.FiltersController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #242526; -fx-border-color: gold; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel.FiltersController">
    <children>
       <Label alignment="CENTER" layoutX="224.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="Select the location for your reservation" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="894.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font name="Big Caslon Medium" size="21.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="locationBox" layoutX="392.0" layoutY="104.0" prefWidth="150.0" style="-fx-background-radius: 5cm;" AnchorPane.bottomAnchor="866.0" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="408.0" AnchorPane.topAnchor="104.0" />
+      <ChoiceBox fx:id="locationBox" layoutX="400.0" layoutY="114.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm;" AnchorPane.bottomAnchor="856.0" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="410.0" AnchorPane.topAnchor="109.0" />
       <Button layoutX="800.0" layoutY="800.0" mnemonicParsing="false" onAction="#switchToResults" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: lightblue; -fx-background-radius: 5cm;" text="Next">
          <font>
             <Font name="Big Caslon Medium" size="13.0" />
@@ -65,6 +65,9 @@
                      <font>
                         <Font name="Big Caslon Medium" size="20.0" />
                      </font>
+                     <BorderPane.margin>
+                        <Insets right="10.0" />
+                     </BorderPane.margin>
                   </Text>
                </top>
                <right>
@@ -105,14 +108,17 @@
                      <font>
                         <Font name="Big Caslon Medium" size="20.0" />
                      </font>
+                     <BorderPane.margin>
+                        <Insets right="80.0" />
+                     </BorderPane.margin>
                   </Text>
                </top>
                <center>
                   <BorderPane prefHeight="73.0" prefWidth="488.0" BorderPane.alignment="CENTER">
                      <center>
-                        <ChoiceBox fx:id="size" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" BorderPane.alignment="CENTER">
+                        <ChoiceBox fx:id="size" layoutX="392.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5cm; -fx-background-color: lightgray;" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
-                              <Insets />
+                              <Insets right="80.0" />
                            </BorderPane.margin>
                         </ChoiceBox>
                      </center>
