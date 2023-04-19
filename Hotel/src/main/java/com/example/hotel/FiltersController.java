@@ -182,7 +182,7 @@ public class FiltersController implements Initializable {
                 boolean rsPet = rs.getBoolean("pet");
                 double rsPrice = rs.getDouble("price");
                 
-                String x = "Room Number: "+rsRoomNo+"\nRoomSize: "+rsSize+"\nSmoking: "+rsSmoking+" Pets: "+rsPet+"\nPrice: $"+rsPrice;
+                String x =rsRoomNo+"\nRoomSize: "+rsSize+"\nSmoking: "+rsSmoking+" Pets: "+rsPet+"\nPrice: $"+rsPrice;
                 //ADD THESE VARIABLES TO OBSERVABLESTRING ARRAY
                 results.add(x);
             }
