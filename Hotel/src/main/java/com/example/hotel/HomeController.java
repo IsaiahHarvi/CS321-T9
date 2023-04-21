@@ -16,7 +16,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * Home scene controller, this is the starting scene
+ * @author caseybramlett
+ */
 
 public class HomeController implements Initializable{
     
@@ -27,15 +30,13 @@ public class HomeController implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         loadData();
-        //test.getItems().addAll(testwords);
 
     }
-    /*@FXML
-    private ChoiceBox<String> test;
-    private String testwords[] = {"1","2","3"};*/
-
 
     @FXML
+    /**
+     * switches to filters scene
+     */
     private void switchToFilters(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("filters.fxml"));
         root = loader.load();
@@ -50,6 +51,9 @@ public class HomeController implements Initializable{
     }
     
     @FXML
+    /**
+     * switches to checkout scene
+     */
     private void switchToCheckOut(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("checkout.fxml"));
         root = loader.load();
@@ -63,9 +67,9 @@ public class HomeController implements Initializable{
         stage.show();
     }
 
-    //does nothin yet
+    /**
+     * does nothing yet
+     */
     private void loadData(){
-        //test.getItems().addAll(testwords);
-        //locationBox.getItems().addAll(Hotels);
     }
 }

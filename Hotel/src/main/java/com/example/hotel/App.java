@@ -5,14 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Date;
-import java.util.Scanner;
 import java.io.File;
-
-import java.sql.Statement; //I think this will fix the issue but im not sure - Casey 
-
-//import 
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +14,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 
 /**
- * JavaFX App
+ * JavaFX App where main is located with FX start functions
+ * 
+ * @author caseybramlett
  */
 public class App extends Application {
     private static Scene scene;
@@ -48,14 +42,18 @@ public class App extends Application {
         App app = new App();
 
     }
-        // Insert a guest into the Guest table
+        /**
+         * function to add new guest into database 
+         * @param fName guest first name
+         * @param lName guest last name
+         * @param email guest email
+         * @param phoneNum guest phone number
+         */
     public void insert(String fName, String lName, String email, String phoneNum) {
         String sql = "INSERT INTO Guest (first_name,last_name,email,phone) VALUES(?,?,?,?)";
 
         try (Connection conn = this.connection();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            // System.out.println("conn: " + conn); // add this line
-
             pstmt.setString(1, fName);
             pstmt.setString(2, lName);
             pstmt.setString(3, email);
@@ -66,7 +64,14 @@ public class App extends Application {
             System.out.println(e.getMessage());
         }
     }
-    
+    /**
+     * function to create new reservation
+     * @param guestNo guest number
+     * @param hotelNo hotel number
+     * @param roomNo room number - related to hotel number
+     * @param checkIn check in date for reservation
+     * @param checkOut check out date for reservation
+     */
     public void addRes(long guestNo, int hotelNo, int roomNo, String checkIn , String checkOut){
         String sql = "INSERT INTO Booking (guest_No,hotel_No,room_No,check_in_date,check_out_date) VALUES (?,?,?,?,?)";
         
@@ -86,7 +91,10 @@ public class App extends Application {
         }
     }
     
-        // Connect to Hotel.db
+        /**
+         * This function  is used several times through out the program to connect to the database
+         * @return connection to database
+         */
     private Connection connection() {
         Connection connect = null;
         String url = ("jdbc:sqlite:" + new File("src//main//java//Database//Hotel.db").getAbsolutePath());

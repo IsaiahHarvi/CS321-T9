@@ -1,0 +1,52 @@
+@options
+@packages
+@argfile
+--class-path
+'/Users/caseybramlett/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar:/Users/caseybramlett/.m2/repository/org/xerial/sqlite-jdbc/3.41.2.1/sqlite-jdbc-3.41.2.1.jar'
+--module-path
+'/Users/caseybramlett/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-mac.jar:/Users/caseybramlett/CS321-T9/Hotel/target/classes:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-mac.jar:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-mac.jar:/Users/caseybramlett/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-mac.jar'
+--patch-module
+com.example.hotel='/Users/caseybramlett/CS321-T9/Hotel/src/main/java'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+--module-source-path
+'/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/src'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Hotel 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/Users/caseybramlett/CS321-T9/Hotel/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Hotel 1.0-SNAPSHOT API'
+com.example.hotel
+'/Users/caseybramlett/CS321-T9/Hotel/src/main/java/module-info.java'
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/tag-search-index.js = 1682104941564
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/overview-tree.html = 1682104941523
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/module-search-index.js = 1682104941561
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/index.html = 1682104941611
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/.DS_Store = 1682104658145
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/package-search-index.js = 1682104941562
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/jquery-ui.overrides.css = 1682104941627
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/index-all.html = 1682104941609
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/allpackages-index.html = 1682104941560
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/member-search-index.js = 1682104941563
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/script.js = 1682104941620
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/stylesheet.css = 1682104941619
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/help-doc.html = 1682104941617
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/element-list = 1682104941457
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/allclasses-index.html = 1682104941557
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/type-search-index.js = 1682104941563
+/Users/caseybramlett/CS321-T9/Hotel/target/site/apidocs/search.js = 1682104941622

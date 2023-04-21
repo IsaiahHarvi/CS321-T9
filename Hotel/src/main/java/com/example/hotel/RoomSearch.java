@@ -7,6 +7,13 @@ package com.example.hotel;
 import javafx.scene.control.DatePicker;
 import java.sql.Date;
 
+
+/**
+ * This is the class that take in the room filters / parameters. This object with be parsed through to get its variables.
+ * There are getter and setter methods for each of variables below 
+ * 
+ * @author caseybramlett
+ */
 public class RoomSearch {
     private String city;
     private int minPrice;

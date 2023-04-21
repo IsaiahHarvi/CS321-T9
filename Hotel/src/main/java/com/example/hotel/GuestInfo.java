@@ -4,6 +4,11 @@
  */
 package com.example.hotel;
 
+/**
+ *  this class is not yet used and was setup for future plans like having
+ *  an accessible guest account that they could edit / change information
+ * @author caseybramlett
+ */
 public class GuestInfo {
     private String name;
     private int guestNum;
@@ -30,6 +35,7 @@ public class GuestInfo {
         this.roomNum = roomNum;
     }
 
+    
     public void setName(String name){
         this.name = name;
     }

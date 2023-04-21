@@ -5,36 +5,20 @@
 package com.example.hotel;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
-
+/**
+ * Controller class for results scene where available rooms are displayed on list
+ * @author caseybramlett
+ */
 public class ResultsController {
     @FXML
     ListView<String> list = new ListView<>();
@@ -42,21 +26,39 @@ public class ResultsController {
     private Scene scene;
     private Parent root;
     
+    /**
+     * function to receive hotel number from filters, will then be sent to guestController
+     */
     public int hotelNum;
     public void setHotelNum(int n){hotelNum = n;}
     
+    /**
+     * receives home root
+     */
     private Parent homeRoot;
     public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
     
+    /**
+     * receives filters root
+     */
     private Parent filtersRoot;
     public void setFiltersRoot(Parent filtersRoot){this.filtersRoot=filtersRoot;}
     
-    //ObservableList<String> s
+    /**
+     * takes in arrayList that contains all room options
+     * and puts them in the list
+     * @param s - arrayList of options
+     */
     public void displayListView(ArrayList<String> s){
         list.getItems().addAll(s);
     }
     public void refreshList(){list.refresh();} 
     
+    /**
+     * switches to back to filters scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void switchToFilters(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("filters.fxml"));
@@ -67,7 +69,11 @@ public class ResultsController {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     * switches to guest scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     public void switchToGuest(ActionEvent event) throws IOException{
         
@@ -88,8 +94,14 @@ public class ResultsController {
         stage.show();
     }
     
+    
     @FXML
     public String checkIn,checkOut;
+    /**
+     * receives dates from filtersController
+     * @param in
+     * @param out 
+     */
     public void recieveDates(String in,String out){
         checkIn=in;checkOut=out;
     }

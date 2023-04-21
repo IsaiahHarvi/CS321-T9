@@ -24,7 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-
+/**
+ * controller for checkout scene, accessed from second button on home scene
+ * @author caseybramlett
+ */
 public class CheckOutController implements Initializable{
     
     
@@ -35,6 +38,11 @@ public class CheckOutController implements Initializable{
     private Parent homeRoot;
     public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
     
+    /**
+     * switches to home scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void switchToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
@@ -44,7 +52,10 @@ public class CheckOutController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-    
+    /**
+     * connects to database
+     * @return connection to database
+     */
     // Connect to Hotel.db
     private Connection connection() {
         Connection connect = null;
@@ -71,6 +82,10 @@ public class CheckOutController implements Initializable{
     
     @FXML
     private Button delete;
+    /**
+     * takes in phone number(stored as guest number) and removes reservation from DB
+     * @param phone serves as guest number
+     */
     public void deleteRes(String phone){
         //String RMquery = ("DELTE FROM Booking WHERE guest_No = ?) VALUES (",phone);
         String sql = "DELETE FROM Booking WHERE guest_No = ?";
@@ -86,7 +101,12 @@ public class CheckOutController implements Initializable{
             System.out.println(e.getMessage());
         }
     }
+    
+    
     @FXML 
+    /**
+     * function that calls deleteRes when button is clicked
+     */
     public void removeRes(){
         String phone = number.getText();
         deleteRes(phone);

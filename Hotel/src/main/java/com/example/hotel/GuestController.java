@@ -6,7 +6,6 @@ package com.example.hotel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,12 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-
+/**
+ * controller for 4th scene in checkout process where guest information is added
+ * @author caseybramlett
+ */
 public class GuestController implements Initializable {
     
     private Stage stage;
@@ -47,13 +48,26 @@ public class GuestController implements Initializable {
     
     @FXML
     public String selected;
+    /**
+     * receives selected room from resultsController
+     * @param s 
+     */
     public void setSelected(String s){selected =s;System.out.println(selected);}
     
     public String checkIn,checkOut;
     public int hotelNumber;
+    /**
+     * receives check in/out dates and hotelNum from resultsController
+     * @param in
+     * @param out
+     * @param hotelNum 
+     */
     public void recieveDatesAndHotel(String in, String out,int hotelNum){checkIn=in;checkOut=out;hotelNumber=hotelNum;System.out.println(in+"\n"+out+"\n"+hotelNumber);}
     
-    
+    /**
+     * creates new reservation in database with data from filtersController,
+     * selected room and guest information
+     */
     public void AddResToDataBase(){
         int hotelNo,roomNo;
         long guestNo;
@@ -68,13 +82,19 @@ public class GuestController implements Initializable {
     
     
     
-    
+    /**
+     * adds guest to database with information retrieved from UI
+     */
     @FXML
     public void AddGuestToDataBase(){
         App app = new App();
         app.insert(firstname.getText(), lastname.getText(), email.getText(), phonenumber.getText());
         }
-    
+    /**
+     * switches to results scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void switchToResults(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
@@ -87,6 +107,11 @@ public class GuestController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     * switches to confirmation scene
+     * @param event
+     * @throws IOException 
+     */
     public void switchToConfirmation(ActionEvent event) throws IOException{
         String s = firstname.getText()+" "+lastname.getText()+"\n "+email.getText()+"\n "+phonenumber.getText();
         AddGuestToDataBase();

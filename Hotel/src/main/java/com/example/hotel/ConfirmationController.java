@@ -16,16 +16,27 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-
+/**
+ * controller for last scene in check in process
+ * @author caseybramlett
+ */
 public class ConfirmationController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     private Parent homeRoot;
+    /**
+     * sets home room that has been passed from previous scenes
+     * @param preRoot 
+     */
     public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
     @FXML
     Label myLabel;
 
+    /**
+     * sets label with guest information for confirmation
+     * @param s 
+     */
     @FXML
     public void setLabel(String s){myLabel.setText(s);} 
     
@@ -34,6 +45,11 @@ public class ConfirmationController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+    /**
+     * switches to previous home scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     public void switchToHome(ActionEvent event) throws IOException{
         scene = new Scene(loadFXML("home"), 1000, 1000);

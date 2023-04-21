@@ -16,9 +16,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
 import java.sql.Date;
 
-import javafx.collections.ObservableList;
-import javafx.collections.FXCollections;
-
 import com.example.hotel.RoomSearch;
 import java.io.File;
 import java.sql.Connection;
@@ -33,18 +30,24 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * Controller for 2nd scene where room filters are selected
+ * @author caseybramlett
+ */
 
 public class FiltersController implements Initializable {
     @FXML
     private ArrayList<String> results = new ArrayList<>();
-    //private ObservableList<String> results = FXCollections.observableArrayList();
     
     private Stage stage;
     private Scene scene;
     
     private Parent root;
     private Parent homeRoot;
+    /**
+     * receives home root from previous scene
+     * @param preRoot 
+     */
     public void setHomeRoot(Parent preRoot){this.homeRoot=preRoot;}
 
     @FXML
@@ -76,6 +79,11 @@ public class FiltersController implements Initializable {
     @FXML 
     private Button next;
     
+    /**
+     * switch to home scene
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void switchToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
@@ -85,26 +93,33 @@ public class FiltersController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML 
+    /**
+     * switch to results scene
+     * @param event
+     * @throws IOException 
+     */
+    @FXML
     public void switchToResults(ActionEvent event) throws IOException{
         getAvailableRooms(search());
         System.out.println(results.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("results.fxml"));
         root = loader.load();
-        
         ResultsController resultController = loader.getController();
         resultController.displayListView(results);
         resultController.setHomeRoot(homeRoot);
         resultController.setFiltersRoot(this.root);
         resultController.setHotelNum(locationBox.getSelectionModel().getSelectedIndex()+1);
-        
         resultController.recieveDates(checkInDate.getValue().toString(), checkOutDate.getValue().toString());
-        
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     * returns roomSearch object that uses its setter methods to set variables from UI
+     * @return roomSearch object
+     * @throws IOException 
+     */
     @FXML
     private RoomSearch search()throws IOException{
         // Create filter object
@@ -119,16 +134,21 @@ public class FiltersController implements Initializable {
         search.setSmoking(smoking.isSelected());
         return search;
     }
+    /**
+     * initializes location choice box and size choice box
+     * @param arg0
+     * @param arg1 
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //loadData();
         locationBox.getItems().addAll(Hotels);
         size.getItems().addAll(sizeOptions);
     }
-
     
-    
-    // Connect to Hotel.db
+    /**
+     * connects to database
+     * @return connection to database
+     */
     private Connection connection() {
         Connection connect = null;
         String url = ("jdbc:sqlite:" + new File("src//main///java///Database//Hotel.db").getAbsolutePath());
@@ -146,7 +166,12 @@ public class FiltersController implements Initializable {
 
         return connect;
     }
-    
+    /**
+     * takes in room search object and queries database to matching rooms
+     * then adds its results to a ArrayList which is later passed to resultsController
+     * @param roomSearch object from search() function
+     * @throws IOException 
+     */
     public void getAvailableRooms(RoomSearch roomSearch)throws IOException {
         ResultSet rs = null;
         try (Connection conn = this.connection()) {
